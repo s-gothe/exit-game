@@ -10,10 +10,12 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "composer/package-versions-deprecated": "1.11.99.1",
+        "doctrine/annotations": "^1.11",
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.8",
         "sensio/framework-extra-bundle": "^5.6",
+        "symfony/apache-pack": "^1.0",
         "symfony/asset": "*",
         "symfony/console": "*",
         "symfony/doctrine-bridge": "5.2.*",
@@ -36,13 +38,18 @@
         "symfony/twig-pack": "*",
         "symfony/validator": "*",
         "symfony/web-link": "*",
+        "symfony/webpack-encore-bundle": "^1.8",
         "symfony/yaml": "*"
     },
     "require-dev": {
+        "symfony/debug-bundle": "5.2.*",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
-        "symfony/profiler-pack": "*",
-        "symfony/test-pack": "*"
+        "symfony/stopwatch": "^5.2",
+        "symfony/test-pack": "*",
+        "symfony/twig-bundle": "^5.2",
+        "symfony/var-dumper": "5.2.*",
+        "symfony/web-profiler-bundle": "^5.2"
     },
     "config": {
         "optimize-autoloader": true,

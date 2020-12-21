@@ -1,28 +1,43 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
-class QuestionController
+/**
+ * Class QuestionController
+ * @package App\Controller
+ */
+class QuestionController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="app_homepage")
+     * @return Response
      */
-    public function homepage()
+    public function homepage(): Response
     {
-        return new Response('Hello to the world!');
+        return $this->render('question/homepage.html.twig');
     }
 
     /**
-     * @Route("/questions/{slug}")
+     * @Route("/question/{slug}", name="app_question_show")
+     * @param $slug
+     * @return Response
      */
-    public function show($slug)
+    public function show(string $slug): Response
     {
-        return new Response(sprintf(
-            'Whats the questtion: "%s"',
-            $slug
-        ));
+        $anwsers = [
+            'Make sure your cat is sitting purrfectly still ;)',
+            'Honestly, I like furry shoes better then MY cat',
+            'Maybe... tra saying the spell backwards?'
+        ];
+
+        return $this->render('question/show.html.twig', [
+            'question' => ucwords(str_replace('-', ' ', $slug)),
+            'answers' => $anwsers
+        ]);
     }
 }
